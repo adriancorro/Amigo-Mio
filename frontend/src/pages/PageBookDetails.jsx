@@ -21,8 +21,8 @@ const PageBookDetails = (props) => {
       let [dataUser, setDataUser] = useState([]);
       let [isAdmin, setIsAdmin] = useState([]);
       // api fetch comments  
-      let API_BOOKS_COMMENTS = `http://localhost:4000/user/booksCommentsUser/${book.id}`;
-      let API_COMMENT_USER = 'http://localhost:4000/user/commentInsert'
+      let API_BOOKS_COMMENTS = `/user/booksCommentsUser/${book.id}`;
+      let API_COMMENT_USER = '/user/commentInsert'
 
       useEffect(()=> {
         const validationUserInformation = async () =>{

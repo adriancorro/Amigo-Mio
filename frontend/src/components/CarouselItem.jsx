@@ -23,6 +23,10 @@ let CarouselItem = (props)=> {
       
   }
   validationUserInformation()
+  
+  return () => {
+    setDataUser({}); 
+  };
  
    }, []);
 

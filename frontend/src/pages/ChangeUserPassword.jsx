@@ -11,7 +11,7 @@ const ChangeUserPassword = (props)=> {
         const setState = [setPassword, setNewPassword];
     
         // api
-        let API_C_PASSWORD = 'http://localhost:4000/user/changePassword';
+        let API_C_PASSWORD = '/user/changePassword';
         
         // functions
         const handleOnChange = event => {

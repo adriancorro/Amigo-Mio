@@ -15,7 +15,7 @@ const UserProfile = ()=> {
     let [dataUser, setDataUser] = useState(null);
 
     // Api
-    let API_USER = 'http://localhost:4000/user/userProfile';
+    let API_USER = '/user/userProfile';
     // let API_ALL_USERS = 'http://localhost:4000/user/allusers';
 
     useEffect(()=> {

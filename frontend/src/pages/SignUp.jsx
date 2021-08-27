@@ -11,7 +11,7 @@ const SignUp = props => {
     const setState = [setName, setEmail, setPassword];
 
     // api
-    const API = "http://localhost:4000/user/sign-up";
+    const API = "/user/sign-up";
     
     // functions
     const handleOnChange = event => {
