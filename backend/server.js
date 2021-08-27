@@ -10,7 +10,7 @@ const app = express();
 // parse requests of content-type - application/json
 app.use(express.json());
 
-let root = path.join(__dirname, '../frontend/build/')
+let root = path.join(__dirname, '/frontend/build/')
 
 // Serve static files from the React frontend app
 app.use(express.static(root))
