@@ -3,4 +3,9 @@
     "backend": "cd backend && node server.js",
     "dev": "concurrently --kill-others-on-fail \"npm run backend\" \"npm run frontend\"",
     "heroku-postbuild": "cd frontend && npm install && npm run build"
-  }}
+  },
+  "dependencies": {
+    "express": "^4.17.1" 
+  }
+
+}  
