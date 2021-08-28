@@ -1,10 +1,1 @@
-{
-"scripts": {
-    "client-install": "npm install --prefix ./frontend",
-    "start": "node --prefix ./backend/server.js",
-    "server": "nodemon --prefix ./backend/server.js",
-    "client": "npm start --prefix ./frontend",
-    "dev": "concurrently \"npm run --prefix ./backend\" \"npm run --prefix ./frontend\"",
-    "heroku-postbuild": "cd  --prefix ./frontend && npm install && npm run build"
-}
-}
+{"scripts":{"frontend":"cd frontend && npm start","backend":"cd backend && node server.js","dev":"concurrently --kill-others-on-fail \"npm run backend\" \"npm run frontend\"","heroku-postbuild":"cd frontend && npm install && npm run build"}}
