@@ -1,9 +1,9 @@
 {
 "scripts": {
-    "client-install": "npm install --prefix frontend",
-    "start": "node server.js",
-    "server": "nodemon server.js",
-    "client": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"}
+    "client-install": "npm install --prefix ./frontend",
+    "start": "node --prefix ./backend/server.js",
+    "server": "nodemon --prefix ./backend/server.js",
+    "client": "npm start --prefix ./frontend",
+    "dev": "concurrently \"npm run --prefix ./backend\" \"npm run --prefix ./frontend\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix ./frontend && npm run build --prefix ./frontend"}
 }
