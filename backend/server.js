@@ -24,13 +24,14 @@ app.use(express.static(root))
 
  //this is the routing which will redirect your server url to react build file
  app.get("*",(req,res)=>{
-  res.sendFile(path.join(__dirname, '/client/build/index.html'));
+  res.sendFile(path.join(__dirname, '/frontend/build/index.html'));
 })
 
 const corsOptions = {
     origin: "/"
   };
-
+  
+app.use(express.static("frontend/build"));
 app.use(cors(corsOptions));  // enable CORS
 
 // Simple route
