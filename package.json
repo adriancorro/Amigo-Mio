@@ -1,9 +1,25 @@
 {
     "scripts": {
-      "start"  : "node ./backend/server.js",
-      "heroku-postbuild": "cd frontend && yarn install && yarn run build"
-    },
-    "cacheDirectories": [
-      "frontend/node_modules"
-    ]
+        "start": "./backend node server.js"
+          },
+          "dependencies": {
+            "bcrypt": "^5.0.1",
+            "cors": "^2.8.5",
+            "dotenv": "^10.0.0",
+            "express": "^4.17.1",
+            "jsonwebtoken": "^8.5.1",
+            "make-runnable": "^1.3.10",
+            "@testing-library/jest-dom": "^5.14.1",
+            "@testing-library/react": "^11.2.7",
+            "@testing-library/user-event": "^12.8.3",
+            "pg": "^8.7.1",
+            "react": "^17.0.2",
+            "react-awesome-slider": "^4.1.0",
+            "react-dom": "^17.0.2",
+            "react-router-dom": "^5.2.0",
+            "react-scripts": "4.0.3",
+            "react-simple-image-slider": "^2.1.2",
+            "sweetalert": "^2.1.2",
+            "web-vitals": "^1.1.2"
+          }
 }
