@@ -10,18 +10,22 @@ const app = express();
 // parse requests of content-type - application/json
 app.use(express.json());
 
-let root = path.join(__dirname, '/frontend/build/')
+
+app.use('/', express.static(path.join(__dirname, 'frontend/public')))
+
+
+/* let root = path.join(__dirname, '/frontend/build/') */
 
 // Serve static files from the React frontend app
 /* app.use(express.static(root)) */
 
 /* app.use(express.static("frontend/build")); */
-app.use(express.static ('client/build'));
+/* app.use(express.static ('client/build'));
 
 const ruta = require ('ruta');
 
 app.get ('*', (req, res) => {
-  res.sendFile (path.resolve (__dirname, 'client', 'build', 'index.html'))})
+  res.sendFile (path.resolve (__dirname, 'client', 'build', 'index.html'))}) */
 
 /* app.use(express.static(path.join(__dirname, '../frontend/build/'))) */
 
