@@ -1,5 +1,6 @@
 {
     "scripts": {
+      "start"  : "node ./backend/server.js",
       "heroku-postbuild": "cd frontend && yarn install && yarn run build"
     },
     "cacheDirectories": [
