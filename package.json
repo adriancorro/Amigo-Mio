@@ -1,12 +1,7 @@
 {
-  "name": "amigo-mio",
-  "version": "1.0.0",
-  "license": "",
-  "engines": {
-    "node": "14.15.x",
-    "yarn": "1.22.x"
-  },
+ 
   "scripts": {
+    "start": "node ./backend/server.js",
     "heroku-postbuild": "cd frontend && yarn install && yarn run build"
   },
   "cacheDirectories": [
