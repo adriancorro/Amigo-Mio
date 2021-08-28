@@ -1,6 +1,6 @@
 {
     "scripts": {
-      "heroku-postbuild": "frontend && yarn install && yarn run build"
+      "heroku-postbuild": "npm --prefix ./frontend install && npm --prefix ./frontend run build"
     },
           "dependencies": {
             "bcrypt": "^5.0.1",
