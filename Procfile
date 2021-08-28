@@ -1,1 +1,1 @@
-web: frontend && npm i && npm start
+web: npm --prefix ./frontend install
