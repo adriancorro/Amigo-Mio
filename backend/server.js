@@ -15,6 +15,8 @@ let root = path.join(__dirname, '/frontend/build/')
 // Serve static files from the React frontend app
 app.use(express.static(root))
 
+app.use(express.static("frontend/build"));
+
 /* app.use(express.static(path.join(__dirname, '../frontend/build/'))) */
 
 // AFTER defining routes: Anything that doesn't match what's above, send back index.html; (the beginning slash ('/') in the string is important!)
@@ -26,13 +28,12 @@ app.use(express.static(root))
  app.get("*",(req,res)=>{
   res.sendFile(path.join(__dirname, '/frontend/build/index.html'));
 })
-
+/* 
 const corsOptions = {
     origin: "/"
   };
   
-app.use(express.static("frontend/build"));
-app.use(cors(corsOptions));  // enable CORS
+app.use(cors(corsOptions));  // enable CORS */
 
 // Simple route
 app.get('/', (req, res) => {
