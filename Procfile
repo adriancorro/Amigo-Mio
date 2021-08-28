@@ -1,1 +1,2 @@
-web: ./frontend npm start
+web: frontend && npm i && npm start
+server: backend && npm i && npm start
