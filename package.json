@@ -1,6 +1,6 @@
 {
     "scripts": {
-        "start": "./backend node server.js"
+        "start": "node backend/server.js"
           },
           "dependencies": {
             "bcrypt": "^5.0.1",
