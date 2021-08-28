@@ -3,6 +3,6 @@
         "heroku-postbuild": "cd frontend && yarn install && yarn run build"
       },
       "cacheDirectories": [
-        "client/node_modules"
+        "frontend/node_modules"
       ]
 }
