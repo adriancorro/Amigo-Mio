@@ -13,9 +13,15 @@ app.use(express.json());
 let root = path.join(__dirname, '/frontend/build/')
 
 // Serve static files from the React frontend app
-app.use(express.static(root))
+/* app.use(express.static(root)) */
 
-app.use(express.static("frontend/build"));
+/* app.use(express.static("frontend/build")); */
+app.use(express.static ('client/build'));
+
+const ruta = require ('ruta');
+
+app.get ('*', (req, res) => {
+  res.sendFile (path.resolve (__dirname, 'client', 'build', 'index.html'))})
 
 /* app.use(express.static(path.join(__dirname, '../frontend/build/'))) */
 
@@ -25,9 +31,11 @@ app.use(express.static("frontend/build"));
 }) */
 
  //this is the routing which will redirect your server url to react build file
- app.get("*",(req,res)=>{
-  res.sendFile(path.join(__dirname, '/frontend/build/index.html'));
-})
+/*  app.get("*",(req,res)=>{
+  res.sendFile(path.join(__dirname, '/client/build/index.html'));
+}) */
+
+
 /* 
 const corsOptions = {
     origin: "/"
