@@ -7,12 +7,12 @@ const PORT = process.env.PORT || 4000;
 
 // initializing express application
 const app = express();
-app.use(express.json());
+/* app.use(express.json()); */
 
 if(process.env.NODE_ENV === "production"){
   app.use(express.static('./frontend/build'));
   app.get('*', (req, res) => {
-    req.sendFile(path.resolve(__dirname, './frontend/build', 'index.html'))
+    req.sendFile(path.resolve(__dirname, 'build', 'index.html'))
   })
 }
 
