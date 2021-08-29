@@ -55,7 +55,7 @@
   @media screen and (max-width: 500px) {
     .backgroundMain {
  
-      height: max-content;
+      height: max-content; 
       
     }
   }

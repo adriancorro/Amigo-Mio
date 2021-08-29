@@ -13,7 +13,6 @@ let Books = ()=> {
     // state
     let [books, setBooks] = useState([]);
     let [booksFavorites, setBooksFavorites] = useState([]);
-    let [pressButton, setPressButton] = useState(false);
     let [dataUser, setDataUser] = useState([]);
 
     useEffect(()=> {
@@ -21,8 +20,8 @@ let Books = ()=> {
        }, [buttonFavStatus]);
 
     // api 
-    let API = "http://localhost:4000/user/allbooks";
-    let API_FAVORITES = `http://localhost:4000/user/favorites/${ dataUser.length && dataUser[0].id}`;
+    let API = "/user/allbooks";
+    let API_FAVORITES = `/user/favorites/${ dataUser.length && dataUser[0].id}`;
    
    // fetch
    let apiBooksFavs = () => {
@@ -44,7 +43,6 @@ let Books = ()=> {
     const validationUserInformation = async () =>{
         const requestAut = await  getUserDetails() 
         await  setDataUser(requestAut)
-        console.log(dataUser)
     }
     validationUserInformation()
 }, []);
@@ -64,7 +62,7 @@ let Books = ()=> {
         dataUser.length > 0 && apiBooksFavs()
      }, [dataUser]);
 
-    return (
+    return ( 
         <>              
            
             <center className="galery-center"><h1>Books</h1></center>    
@@ -107,7 +105,7 @@ let Books = ()=> {
                                     <CarouselItem  results={books}  />
                                 </Carousel>
                             </Categories>
-                            <Categories title="Trend">
+                            <Categories title=" ">
                                 <Carousel>
                                     <CarouselItem/>
                                     <CarouselItem/>

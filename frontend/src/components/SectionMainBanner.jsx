@@ -4,7 +4,7 @@ import '../assets/styles/components/sectionMainBanner.css';
 const SectionMainBanner = () => {
     return (
       <header>
-        <div className="container-fluid">
+        <div className="container-fluid"> 
           <div className="contenido">
             <div className="backgroundMain" > 
             <div className="cuadroparatextos">

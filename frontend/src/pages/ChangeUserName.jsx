@@ -16,7 +16,7 @@ const ChangeUserName = (props)=> {
      const setState = [setName, setPassword];
  
      // api
-     let API_C_NAME = 'http://localhost:4000/user/changeUsername';
+     let API_C_NAME = '/user/changeUsername';
      
      // functions
      const handleOnChange = event => {

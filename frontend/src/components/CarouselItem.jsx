@@ -20,9 +20,13 @@ let CarouselItem = (props)=> {
     const validationUserInformation = async () =>{
       const requestAut = await  getUserDetails() 
       setDataUser(requestAut)
-      getSaveUser()
+      
   }
   validationUserInformation()
+  
+  return () => {
+    setDataUser({}); 
+  };
  
    }, []);
 
@@ -60,22 +64,7 @@ let CarouselItem = (props)=> {
       });
     
   }
-
-  const getSaveUser = ()  => {
-    fetch(API_FAV_GET).then(function(response) {
-      if(response.ok) {
-        response.json().then(function(data) {
-        });
-      } else {
-        console.log('Respuesta de red OK pero respuesta HTTP no OK');
-      }
-    })
-    .catch(function(error) {
-      console.log('Hubo un problema con la petición Fetch:' + error.message);
-    });
-  }
-
-
+  
     return (
         <> 
        
@@ -107,7 +96,7 @@ let CarouselItem = (props)=> {
           <div className="carousel-item__details">
             <p className="carousel-item__details--title">{result.title}  </p>
             <p className="carousel-item__details--subtitle">Likes: {result.likes} </p>
-            {dataUser.length && dataUser[0].is_admin &&
+            {dataUser.length && dataUser[0] &&
             <div className="img_container"  onClick={getIdBook}  data-value={result.id } >
                
                {dataBooksFavorites  && (dataBooksFavorites.find(e => e.id == result.id)) ?

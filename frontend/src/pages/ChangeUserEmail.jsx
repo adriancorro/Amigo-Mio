@@ -11,7 +11,7 @@ const ChangeUserEmail = (props)=> {
     const setState = [setEmail, setPassword];
 
     // api
-    let API_C_EMAIL = 'http://localhost:4000/user/changeEmail';
+    let API_C_EMAIL = '/user/changeEmail';
     
     // functions
     const handleOnChange = event => {

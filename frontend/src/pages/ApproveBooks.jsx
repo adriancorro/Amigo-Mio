@@ -13,7 +13,7 @@ const ApproveBooks = ()=> {
     // let [approved, setApproved] = useState([]);
 
     // api
-    let API = "http://localhost:4000/user/allbooks";
+    let API = "/user/allbooks";
 
     // function
     let approved = id => {

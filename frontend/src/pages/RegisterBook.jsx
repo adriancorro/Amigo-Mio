@@ -17,7 +17,7 @@ const RegisterBook = (props)=> {
         const setState = [setTitle, setDescription, setImg_Url, setFormat, setSuggest_age];
     
         // api
-        let API_C_EMAIL = 'http://localhost:4000/user/uploadBook';
+        let API_C_EMAIL = '/user/uploadBook';
         
         // functions
         const handleOnChange = event => {
