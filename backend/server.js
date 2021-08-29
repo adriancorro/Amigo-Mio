@@ -10,9 +10,9 @@ const app = express();
 /* app.use(express.json()); */
 
 if(process.env.NODE_ENV === "production"){
-  app.use(express.static('./frontend/build'));
+  app.use(express.static('../frontend/build'));
   app.get('*', (req, res) => {
-    req.sendfile(path.resolve(__dirname, './frontend/build', 'index.html'))
+    req.sendfile(path.resolve(__dirname + '../frontend/build', 'index.html'))
   })
 }
 
