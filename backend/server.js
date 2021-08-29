@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 4000;
 
 // initializing express application
 const app = express();
-/* app.use(express.json()); */
+ app.use(express.json()); 
 
 if(process.env.NODE_ENV === "production"){
   app.use(express.static(path.join(__dirname, '../frontend/build')))
