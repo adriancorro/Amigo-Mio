@@ -1,7 +1,6 @@
 {
     "scripts": {
-      "start": "node server.js",
-      "heroku-postbuild": "cd frontend && npm install && npm run build"
+      "start": "node ../backend/server.js"
     },
           "dependencies": {
             "bcrypt": "^5.0.1",

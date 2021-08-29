@@ -1,1 +1,1 @@
-cd frontend && npm install && npm run build
+web: node ../backend/server.js

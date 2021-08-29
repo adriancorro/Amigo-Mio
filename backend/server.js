@@ -2,10 +2,18 @@ const express = require('express');
 const cors = require("cors");
 const userRouter =  require('./routes/user')
 const path = require('path')
-
+// set port, listen for requests
+const PORT = process.env.PORT || 4000;
 
 // initializing express application
 const app = express();
+
+if(process.env.NODE_ENV === "production"){
+  app.use(express.static('build'));
+  app.get('*', (req, res) => {
+    req.sendFile(path.resolve(__dirname, '../frontend/build', 'index.html'))
+  })
+}
 
 // parse requests of content-type - application/json
 app.use(express.json());
@@ -54,8 +62,7 @@ app.get('/', (req, res) => {
 
 app.use("/user", userRouter);
 
-// set port, listen for requests
-const PORT = process.env.PORT || 4000;
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
