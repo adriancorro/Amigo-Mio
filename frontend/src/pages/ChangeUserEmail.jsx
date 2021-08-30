@@ -35,7 +35,7 @@ const ChangeUserEmail = (props)=> {
 
         const newUser = {
             "email": email,
-            "password": password
+            "password": password 
         };
         // console.log(newUser)
         fetch(API_C_EMAIL, {
