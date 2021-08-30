@@ -134,18 +134,17 @@ router.get("/userProfile", authenticate, async (req, res) => {
   const query = "SELECT id, name, email, is_admin FROM users where id=${id}"
   
   pool.connect((error, client, release) => {
-    if (error) {
-      return console.error('Error acquiring client', error.stack)
+    if (err) {
+      return console.error('Error acquiring client', err.stack)
     }
-    release()
-    client
-    .query(`SELECT id, name, email, is_admin FROM users where id=${id}`)
-    .then((result) => res.json(result.rows))
-    .catch((e) => console.error(e));
+    client.query(query, id, (err, result) => {
+      release()
+      if (err) {
+        return console.error('Error executing query', err.stack)
+      }
+      res.json(result.rows);
+    })
   })
-
-  
- 
 })
 
 //This endpoint gives information about the user and the comment made to the book.
