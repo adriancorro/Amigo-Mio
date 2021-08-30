@@ -137,7 +137,7 @@ router.get("/userProfile", authenticate, async (req, res) => {
     if (err) {
       return console.error('Error acquiring client', err.stack)
     }
-    client.query(query, id, (err, result) => {
+    client.query(query, [id], (err, result) => {
       release()
       if (err) {
         return console.error('Error executing query', err.stack)
