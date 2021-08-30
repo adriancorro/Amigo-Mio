@@ -2,7 +2,7 @@
 // Authorization": "Bearer"
 
 const getUserDetails= ()  => new Promise(function(resolve) {   
-  let API_USER = 'http://localhost:4000/user/userProfile';
+  let API_USER = '/user/userProfile';
   fetch(API_USER, {
       method: 'Get',
       headers: {
