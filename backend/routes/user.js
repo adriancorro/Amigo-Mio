@@ -131,20 +131,21 @@ router.get("/allusers", authenticate, async (req, res) => {
 // get user profile
 router.get("/userProfile", authenticate, async (req, res) => {
   const id = req.user.id
-  const query = "SELECT id, name, email, is_admin FROM users where id=${id}"
-  
-  pool.connect((error, client, release) => {
-    if (err) {
-      return console.error('Error acquiring client', err.stack)
-    }
-    client.query(query, [id], (err, result) => {
-      release()
-      if (err) {
-        return console.error('Error executing query', err.stack)
-      }
-      res.json(result.rows);
-    })
-  })
+  const selectUser = "SELECT id, name, email, is_admin FROM users where id=${id}"
+
+	pool.connect((err, client, release) => {
+		if (err) {
+			return console.error("Error acquiring client", err.stack);
+		}
+		client.query(selectUser, values, (err, result) => {
+			release();
+			if (result.rowCount > 0) {
+				res.status(201).send("1 row was updated");
+			} else {
+				res.status(404).send("Bad request");
+			}
+		})
+	})
 })
 
 //This endpoint gives information about the user and the comment made to the book.
