@@ -22,8 +22,8 @@
   },
   
   "scripts": {
-    "frontend": "cd frontend && npm start",
     "api": "cd backend && nodemon server.js",
+    "frontend": "cd frontend && npm start",
     "dev": "concurrently --kill-others-on-fail \"npm run backend\" \"npm run frontend\"",
     "heroku-postbuild": "cd frontend && npm install && npm run build"
   }

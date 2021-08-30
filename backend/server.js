@@ -57,7 +57,7 @@ app.get ('*', (req, res) => {
 
  //this is the routing which will redirect your server url to react build file
 /*  app.get("*",(req,res)=>{
-  res.sendFile(path.join(__dirname, '/client/build/index.html'));
+  res.sendFile(path.join(__dirname, '/client/build/index.html'));  d
 }) */
 
 
