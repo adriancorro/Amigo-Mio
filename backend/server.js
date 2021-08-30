@@ -10,6 +10,8 @@ const app = express();
 app.use(express.json());
 
 if(process.env.NODE_ENV === "production"){
+  app.use(express.static(path.join(__dirname, '/../frontend/build/')));
+
 app.get('/*', (req, res) => {   
  let  url = path.join(__dirname + '/../frontend/build/', 'index.html');
  if (!url.startsWith('/app/')) // since we're on local windows
