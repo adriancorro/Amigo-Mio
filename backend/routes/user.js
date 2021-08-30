@@ -134,6 +134,7 @@ router.get("/userProfile", async (req, res) => {
   const selectUser = "SELECT id, name, email, is_admin FROM users where id = $1"
 
 	pool.connect((err, client, release) => {
+    release()
 		if (err) {
 			return console.error("Error acquiring client", err.stack);
 		}
