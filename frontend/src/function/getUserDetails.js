@@ -1,5 +1,5 @@
 
-// Authorization": "Bearer"
+// Authorization": "Bearer" 
 
 const getUserDetails= ()  => new Promise(function(resolve) {   
   let API_USER = '/user/userProfile';
