@@ -1,8 +1,7 @@
 {
   
-  "homepage" : "https://amigo-mio-open-culture-center.herokuapp.com/",
     "scripts": {
-    "start": "node ./backend/server.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
