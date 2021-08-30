@@ -13,8 +13,8 @@ let CarouselItem = (props)=> {
   let [pressButton, setPressButton] = useState(false);
   let [alertMessage, setAlertMessage] = useState(false);
   // api fetch comments  
-  let API_FAV_POST = `http://localhost:4000/user/favoritesInsert`;
-  let API_FAV_GET = `http://localhost:4000/user/favorites`;
+  let API_FAV_POST = `/user/favoritesInsert`;
+  let API_FAV_GET = `/user/favorites`;
 
   useEffect(()=> {
     const validationUserInformation = async () =>{

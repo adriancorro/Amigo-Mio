@@ -12,6 +12,8 @@ const config = {
     connectionTimeoutMillis: 2000,
 };
 
+
+
 const pool = new Pool(config);
 
 pool.on('connect', () => {

@@ -10,7 +10,7 @@ const getUserDetails= ()  => new Promise(function(resolve) {
       }
   })
       .then(res => res.json())
-      .then(data => resolve(data))
+      .then(data => {resolve(data); console.log(data)})
       .catch(err => console.error(err)) 
   })
   

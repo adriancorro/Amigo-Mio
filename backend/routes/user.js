@@ -130,24 +130,19 @@ router.get("/allusers", authenticate, async (req, res) => {
 
 // get user profile
 router.get("/userProfile", authenticate, async (req, res) => {
-  const id = req.user.id
-  const selectUser = "SELECT id, name, email, is_admin FROM users where id=${id}"
+  const id =req.user.id
+  const selectUser = "SELECT id, name, email, is_admin FROM users where id = $1"
 
 	pool.connect((err, client, release) => {
 		if (err) {
 			return console.error("Error acquiring client", err.stack);
 		}
-		client.query(selectUser, values, (err, result) => {
-			release();
-			if (result.rowCount > 0) {
-				res.status(201).send("1 row was updated");
-			} else {
-				res.status(404).send("Bad request");
-			}
-		})
+		client.query(selectUser, [id])
+    .then((result) =>{  release() ; res.json(result.rows)}) 
+    .catch((e) => console.error(e));
 	})
-})
-
+}) 
+   
 //This endpoint gives information about the user and the comment made to the book.
 router.get("/booksCommentsUser/:bookId", function(req, res) { 
   const bookId =   parseInt(req.params.bookId) ;
@@ -174,14 +169,17 @@ router.post("/commentInsert", (req, res) =>{
 
 // get all the books
 router.get("/allbooks", async (req, res) => {
-
-  pool
+  pool.connect((err, client, release) => {
+    if (err) {
+      return console.error('Error acquiring client', err.stack)
+    }
+    client
     .query(`SELECT * FROM books`)
-    .then((result) => res.json(result.rows)) 
+    .then((result) =>{  release() ; res.json(result.rows)}) 
     .catch((e) => console.error(e));
 
 }) 
-
+})
 router.get("/favorites/:userId", async (req, res) => {
   const userId =  parseInt(req.params.userId) ;
   const queryFavorites = `SELECT  books.approved,  books.id, books.title, books.descriptoin, books.views, books.image_url, books.likes FROM books JOIN favorites ON favorites.book_id=books.id JOIN users ON users.id=favorites.user_id  WHERE  favorites.user_id = $1`
