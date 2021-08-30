@@ -1,13 +1,12 @@
 
-// Authorization": "Bearer" 
+// Authorization": "Bearer" d
 
 const getUserDetails= ()  => new Promise(function(resolve) {   
   let API_USER = '/user/userProfile';
   fetch(API_USER, {
       method: 'GET',
       headers: {
-        'Content-Type': 'application/json',
-          authorization: `Bearer ${JSON.parse(localStorage.getItem('jwt'))}`
+        'Content-Type': 'application/json', 
       }
   })
       .then(res => res.json())
