@@ -144,6 +144,8 @@ router.get("/userProfile", authenticate, async (req, res) => {
         return res.status(400).json({err});
       }
     })
+    .then(() => res.status(200).send({Profile:"Profile is select"}))
+    .catch((e) => console.error(e));
 
   })
 })
