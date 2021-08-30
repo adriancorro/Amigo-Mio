@@ -129,7 +129,7 @@ router.get("/allusers", authenticate, async (req, res) => {
 
 
 // get user profile
-router.get("/userProfile", authenticate, async (req, res) => {
+router.get("/userProfile", async (req, res) => {
   const id =req.user.id
   const selectUser = "SELECT id, name, email, is_admin FROM users where id = $1"
 
