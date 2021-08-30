@@ -3,10 +3,17 @@ const cors = require("cors");
 const userRouter =  require('./routes/user')
 const path = require('path')
 // set port, listen for requests
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PGPORT || 4000;
 
 // initializing express application
 const app = express();
+
+const corsOptions = {
+  origin: "/"
+};
+
+app.use(cors(corsOptions));  // enable CORS */
+
 app.use(express.json());
 
 if(process.env.NODE_ENV === "production"){
@@ -54,12 +61,8 @@ app.get ('*', (req, res) => {
 }) */
 
 
-/* 
-const corsOptions = {
-    origin: "/"
-  };
-  
-app.use(cors(corsOptions));  // enable CORS */
+
+
 
 // Simple route
 app.get('/', (req, res) => {
