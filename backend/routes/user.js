@@ -138,9 +138,17 @@ router.get("/userProfile", async (req, res) => {
 		if (err) {
 			return console.error("Error acquiring client", err.stack);
 		}
-		client.query(selectUser, [id])
-    .then((result) =>{res.json(result.rows)}) 
-    .catch((e) => console.error(e));
+		client.query(selectUser, [id] , (err, result) => { 
+      release();
+      if (err) {
+        console.log(err.message);
+        return res.status(400).json({ err });
+      }
+      res.json(result.rows);
+    })
+
+  /*   .then((result) =>{res.json(result.rows)}) 
+    .catch((e) => console.error(e)); */
 	})
 }) 
    
