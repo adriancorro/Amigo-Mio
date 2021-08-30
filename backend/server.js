@@ -18,7 +18,7 @@ app.get('/*', (req, res) => {
     url = url.substring(1);
     res.sendFile(url); 
 }) 
-/* app.use(express.static('./frontend/build' ));   
+/* app.use(express.static('./frontend/build' ));    
 app.get('/*',  (req , res ) => {
   req.sendFile(path.join(__dirname, 'index.html'))
 }) */
