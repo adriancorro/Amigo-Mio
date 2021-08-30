@@ -16,7 +16,7 @@ app.get('*', (req, res) => {
 }) */
 app.use(express.static('./frontend/build')); 
 app.get('*',  (req , res ) => {
-  req.sendfile(path.resolve(__dirname, './frontend/build', 'index.html') )
+  req.sendfile(path.resolve(__dirname, 'build', 'index.html') )
 })
 }
 
