@@ -1,5 +1,5 @@
 const { Pool, Client } = require('pg');
-require('dotenv').config()
+require('dotenv').config() 
  
 const config = {
     user: process.env.PGUSER,
@@ -7,6 +7,7 @@ const config = {
     database: process.env.PGDATABASE,
     password: process.env.PGPASSWORD,
     port: process.env.PGPORT, 
+    jwtSecret: process.env.jwtSecret, 
     max: 10,
     idleTimeoutMillis: 30000,
     connectionTimeoutMillis: 2000,

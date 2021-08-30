@@ -9,7 +9,7 @@ const authenticate = async (req, res, next) => {
     if(!token) {
         return res.status(403).send({message: "Authorization Denied", isAutheticated: false})
     }
-
+ 
     token = token.split(" ")[1] 
     // console.log(token)
     try {

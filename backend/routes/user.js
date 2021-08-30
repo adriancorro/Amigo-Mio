@@ -138,7 +138,7 @@ router.get("/userProfile", authenticate, async (req, res) => {
 			return console.error("Error acquiring client", err.stack);
 		}
 		client.query(selectUser, [id])
-    .then((result) =>{  release() ; res.json(result.rows)}) 
+    .then((result) =>{res.json(result.rows)}) 
     .catch((e) => console.error(e));
 	})
 }) 
@@ -175,7 +175,7 @@ router.get("/allbooks", async (req, res) => {
     }
     client
     .query(`SELECT * FROM books`)
-    .then((result) =>{  release() ; res.json(result.rows)}) 
+    .then((result) =>{res.json(result.rows)}) 
     .catch((e) => console.error(e));
 
 }) 
