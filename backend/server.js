@@ -3,13 +3,13 @@ const cors = require("cors");
 const userRouter =  require('./routes/user')
 const path = require('path')
 // set port, listen for requests
-const PORT = process.env.PGPORT || 4000;
+const PORT = process.env.PORT || 4000;
 
 // initializing express application
 const app = express();
 
 const corsOptions = {
-  origin: "/"
+  origin: "https://amigo-mio-open-culture-center.herokuapp.com/"
 };
 
 app.use(cors(corsOptions));  // enable CORS */
