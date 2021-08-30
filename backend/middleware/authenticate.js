@@ -2,24 +2,6 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const user = require("../routes/user");
 
-const config = {
-    user: process.env.PGUSER,
-    host: process.env.PGHOST,
-    database: process.env.PGDATABASE,
-    password: process.env.PGPASSWORD,
-    port: process.env.PGPORT, 
-    jwtSecret: process.env.jwtSecret, 
-    max: 10,
-    idleTimeoutMillis: 30000,
-    connectionTimeoutMillis: 2000,
-};
-
-
-const pool = new Pool(config);
-
-pool.on('connect', () => {
-  console.log('Connected to the Database');
-});
 
 const authenticate = async (req, res, next) => {
     // console.log(req.header("authorization"))
@@ -33,7 +15,7 @@ const authenticate = async (req, res, next) => {
     // console.log(token)
     try {
         const verify = jwt.verify(token, process.env.jwtSecret)
-        // console.log(verify)
+         console.log(verify)
         req.user = verify.user;
         next();
     } catch (error) {
