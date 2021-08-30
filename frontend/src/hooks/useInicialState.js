@@ -6,7 +6,7 @@ const useInicitialState = () => {
     let [allbooks, setAllBooks] = useState([]);
 
     // api
-    let API = "http://localhost:4000/user/allbooks";
+    let API = "/user/allbooks";
 
     // context
     // let {setAllBooks} = useContext(AppContext);
