@@ -36,6 +36,7 @@ const NavBar = () => {
                       <Link to="/" onClick = {()=> {
                         localStorage.removeItem('user')
                         localStorage.removeItem('jwt')
+                        localStorage.removeItem('email')
                         setCurrentUser(JSON.parse(localStorage.getItem('user')))
                         setIsAdmin(false)
                         setUserEmail(false)

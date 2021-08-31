@@ -11,7 +11,6 @@ export const AppProvider = ({children})=> {
     useEffect(()=> {
         setCurrentUser(JSON.parse(localStorage.getItem('user')))
     }, []);
-
     return (
         <AppContext.Provider value={{
             userEmail,

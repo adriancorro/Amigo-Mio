@@ -14,10 +14,12 @@ let CarouselItem = (props)=> {
   let [alertMessage, setAlertMessage] = useState(false);
   // api fetch comments  
   let API_FAV_POST = `/user/favoritesInsert`;
+  let email
+     email = localStorage.getItem('email')
   
   useEffect(()=> {
     const validationUserInformation = async () =>{
-      const requestAut = await  getUserDetails(userEmail) 
+      const requestAut = await  getUserDetails(email) 
       setDataUser(requestAut)
       
   }

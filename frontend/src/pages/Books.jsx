@@ -9,31 +9,26 @@ import getUserDetails from '../function/getUserDetails.js';
 
 let Books = ()=> {
     // context
-    let {currentUser, buttonFavStatus, setDataBooksFavorites, userEmail} = useContext(AppContext);
+    let {currentUser, buttonFavStatus, setDataBooksFavorites} = useContext(AppContext);
     // state
     let [books, setBooks] = useState([]);
     let [booksFavorites, setBooksFavorites] = useState([]);
     let [dataUser, setDataUser] = useState([]);
-
-    useEffect(()=> {
-      
-       }, [buttonFavStatus]);
-
+     let booksFvas
     // api 
     let API = "/user/allbooks";
     let API_FAVORITES = `/user/favorites/${ dataUser.length && dataUser[0].id}`;
+    let email
+     email = localStorage.getItem('email')
    
    // fetch
    let apiBooksFavs = () => {
     fetch(API_FAVORITES, {
         method: 'GET', 
         mode: 'cors', // no-cors, *cors, same-origin
-        headers: {
-            'Content-Type': 'application/json'
-        },
     })
         .then(res => res.json())
-        .then(data =>{ setBooksFavorites(data) ; setDataBooksFavorites(data)})
+        .then(data =>{ setBooksFavorites(data) ; setDataBooksFavorites(data) ;booksFvas = data})
         .catch(err => console.error(err.message))
     }
     let apiBooks = () => {
@@ -45,26 +40,21 @@ let Books = ()=> {
     .catch(err => console.error(err.message)) 
     }
       
-
+     
     //we bring user data
     useEffect(()=> {
-        console.log(userEmail)
-        if(userEmail != null){
             const validationUserInformation = async () =>{
-                const requestAut = await  getUserDetails(userEmail) 
+                const requestAut = await  getUserDetails(email) 
                 console.log(requestAut)
                 await  setDataUser(requestAut)
-            }
-            validationUserInformation()
         }
+        validationUserInformation()
     }, []); 
     
     useEffect(()=> {
-        if(userEmail != null){
-            apiBooksFavs() 
-         }
-        apiBooks()
-        console.log(books)
+            apiBooks()
+            apiBooksFavs()
+        console.log(books) 
     }, []);
 
     // Cuando se presiones el boton de fav se llamara a la funcion apiBooksFavs()
@@ -94,7 +84,6 @@ let Books = ()=> {
                             </Carousel>
                            </Categories>) 
                            :
-                           
                            ( <h5 className = "container favoritesTitle" >
                             There are no favorites on your list.
                             <small className="text-muted"> Add a book to favorites!</small>

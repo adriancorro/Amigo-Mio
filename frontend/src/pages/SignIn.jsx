@@ -60,7 +60,7 @@ const SignIn = props => {
                     localStorage.setItem("user", JSON.stringify(data.isAuth))
                     swal('Login successfully')
                     setCurrentUser(JSON.parse(data.isAuth))
-                    setUserEmail(user.email)
+                    localStorage.setItem("email", user.email)
                     props.history.push("/")
                 }else {
                     swal('Error user or password do no exist')

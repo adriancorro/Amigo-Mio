@@ -123,7 +123,6 @@ router.post("/sign-in", async (req, res) => {
 
 // get all users
 router.get("/allusers", authenticate, async (req, res) => {
-  console.log(req);
   pool
     .query("SELECT * FROM users")
     .then((result) => res.json(result.rows))
@@ -136,7 +135,7 @@ router.get("/userProfile/:email", authenticate, async (req, res) => {
   pool.connect((error, client, release) => {
       let email = req.params.email
       if (error) {
-        return console.error('Error acquiring client', err.stack)
+        return console.error('Error acquiring client', error.stack)
       }
       release()
       if(email != undefined){
@@ -180,7 +179,7 @@ router.post("/commentInsert", (req, res) =>{
 /*  router.options('/allbooks', cors(corsOptions))  */
  // enable pre-flight request for GET request
  
-  router.get("/allbooks", async (req, res) => { 
+  router.get("/allbooks", async (req, res) => {  
     let querySelect = 'SELECT * FROM books'
   pool.connect((err, client, release) => {
    
@@ -191,22 +190,23 @@ router.post("/commentInsert", (req, res) =>{
     if(client.query(querySelect) != undefined){
       client 
       .query(querySelect)
-      .then((table) => res.status(200).send(table.rows))
-      .catch((err)  => res.json(err)) 
+      .then((table) => res.send(table.rows))
+      .catch((err)  => console.log(err)) 
     }
 }) 
 })
 router.get("/favorites/:userId", async (req, res) => {
   pool.connect((err, client, release) => {
     if (err) {
-      return console.error('Error acquiring client', err.stack)
+      return  console.log(err)
     }
+    release()
     const userId =  parseInt(req.params.userId) ;
     const queryFavorites = `SELECT  books.approved,  books.id, books.title, books.descriptoin, books.views, books.image_url, books.likes FROM books JOIN favorites ON favorites.book_id=books.id JOIN users ON users.id=favorites.user_id  WHERE  favorites.user_id = $1`
     if(!isNaN(userId) && userId > 0 ){  
       client
       .query(queryFavorites, [userId]) 
-      .then((result) => {release() ; res.json(result.rows)})
+      .then((result) => {res.json(result.rows)})
       .catch((e) => console.error(e));
     }
   })
