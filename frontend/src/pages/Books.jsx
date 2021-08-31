@@ -9,7 +9,7 @@ import getUserDetails from '../function/getUserDetails.js';
 
 let Books = ()=> {
     // context
-    let {currentUser, buttonFavStatus, setDataBooksFavorites} = useContext(AppContext);
+    let {currentUser, buttonFavStatus, setDataBooksFavorites, userEmail} = useContext(AppContext);
     // state
     let [books, setBooks] = useState([]);
     let [booksFavorites, setBooksFavorites] = useState([]);
@@ -40,8 +40,10 @@ let Books = ()=> {
 
     //we bring user data
     useEffect(()=> {
+        console.log(userEmail)
     const validationUserInformation = async () =>{
-        const requestAut = await  getUserDetails() 
+        const requestAut = await  getUserDetails(userEmail) 
+        console.log(requestAut)
         await  setDataUser(requestAut)
     }
     validationUserInformation()

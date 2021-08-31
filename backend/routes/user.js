@@ -129,28 +129,18 @@ router.get("/allusers", authenticate, async (req, res) => {
 
 
 // get user profile
-router.get("/userProfile", async (req, res) => {
-  const id =req.user.id
-  const selectUser = "SELECT id, name, email, is_admin FROM users where id = $1"
+router.get("/userProfile/:email", authenticate, async (req, res) => {
+  let email = req.params.email
+  if(email != undefined){
+    pool 
+    .query(`SELECT id, name, is_admin FROM users WHERE email = '${email}'`)
+     .then((result) => res.json(result.rows))
+     .catch((e) => console.error(e));  
+  }
+     
+      }) 
+    
 
-	pool.connect((err, client, release) => {
-		if (err) {
-			return console.error("Error acquiring client", err.stack);
-		}
-		client.query(selectUser, [id] , (err, result) => { 
-      release();
-      if (err) {
-        console.log(err.message);
-        return res.status(400).json({ err });
-      }
-      res.json(result);
-      console.log(result)
-    })
-
-  /*   .then((result) =>{res.json(result.rows)}) 
-    .catch((e) => console.error(e)); */
-	})
-}) 
    
 //This endpoint gives information about the user and the comment made to the book.
 router.get("/booksCommentsUser/:bookId", function(req, res) { 

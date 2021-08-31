@@ -3,6 +3,7 @@ import React, {useState, useEffect, createContext} from 'react'
 export const AppContext = createContext();
 
 export const AppProvider = ({children})=> {
+    const [userEmail, setUserEmail] = useState(null);
     const [currentUser, setCurrentUser] = useState(null);
     const [buttonFavStatus, setSuttonFavStatus] = useState(null);
     const [dataBooksFavorites, setDataBooksFavorites] = useState(null);
@@ -13,6 +14,7 @@ export const AppProvider = ({children})=> {
 
     return (
         <AppContext.Provider value={{
+            userEmail,
             buttonFavStatus,
            currentUser,
            dataBooksFavorites,
@@ -20,7 +22,8 @@ export const AppProvider = ({children})=> {
            setIsAdmin,
            setCurrentUser,
           setSuttonFavStatus,
-          setDataBooksFavorites
+          setDataBooksFavorites,
+          setUserEmail
          }}>
             {children}
         </AppContext.Provider>

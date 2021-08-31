@@ -7,7 +7,7 @@ import swal from 'sweetalert';
 
 const SignIn = props => {
     //context
-    let {setCurrentUser} = useContext(AppContext);
+    let {setCurrentUser, setUserEmail} = useContext(AppContext);
     //state
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -60,7 +60,7 @@ const SignIn = props => {
                     localStorage.setItem("user", JSON.stringify(data.isAuth))
                     swal('Login successfully')
                     setCurrentUser(JSON.parse(data.isAuth))
-                    
+                    setUserEmail(user.email)
                     props.history.push("/")
                 }else {
                     swal('Error user or password do no exist')

@@ -1,8 +1,8 @@
 
 // Authorization": "Bearer"
 
-const getUserDetails= ()  => new Promise(function(resolve) {   
-  let API_USER = '/user/userProfile';
+const getUserDetails= (email)  => new Promise(function(resolve) {   
+  let API_USER = `/user/userProfile/${email}`;
   fetch(API_USER, {
       method: 'Get',
       headers: {
