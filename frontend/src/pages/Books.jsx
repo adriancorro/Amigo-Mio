@@ -52,7 +52,9 @@ let Books = ()=> {
 }, []); 
     
     useEffect(()=> {
-        apiBooksFavs() 
+        if(userEmail != undefined){
+            apiBooksFavs() 
+         }
         apiBooks()
     }, []);
 
