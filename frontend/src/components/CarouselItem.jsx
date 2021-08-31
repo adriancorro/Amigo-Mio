@@ -6,7 +6,7 @@ import getUserDetails from '../function/getUserDetails.js';
 import { AppContext } from '../context/AppContext';
 let CarouselItem = (props)=> { 
   // context
-  let {setSuttonFavStatus, dataBooksFavorites} = useContext(AppContext);
+  let {setSuttonFavStatus, dataBooksFavorites, userEmail} = useContext(AppContext);
   // state
   let [saveDataBookId, setSaveDataBookId] = useState([]);
   let [dataUser, setDataUser] = useState([]);
@@ -17,7 +17,7 @@ let CarouselItem = (props)=> {
   
   useEffect(()=> {
     const validationUserInformation = async () =>{
-      const requestAut = await  getUserDetails() 
+      const requestAut = await  getUserDetails(userEmail) 
       setDataUser(requestAut)
       
   }

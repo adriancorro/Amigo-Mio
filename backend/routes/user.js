@@ -131,8 +131,8 @@ router.get("/allusers", authenticate, async (req, res) => {
 })
 
 
-// get user profile
-router.get("/userProfile/:email", async (req, res) => {
+// get user profile 
+router.get("/userProfile/:email", authenticate, async (req, res) => {
   pool.connect((error, client, release) => {
       let email = req.params.email
       if (error) {
