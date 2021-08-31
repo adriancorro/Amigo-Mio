@@ -133,13 +133,17 @@ router.get("/allusers", authenticate, async (req, res) => {
 router.get("/userProfile/:email", async (req, res) => {
   pool.connect((error, client, release) => {
       let email = req.params.email
-      release(); 
+      if (error) {
+        return console.error('Error acquiring client', err.stack)
+      }
+      release()
       if(email != undefined){
-      
-        client  
-        .query(`SELECT id, name, is_admin FROM users WHERE email = '${email}'`)
-        .then((result) => res.json(result.rows))
-        .catch((e) => console.error(e));  
+        if(client.query(`SELECT id, name, is_admin FROM users WHERE email = '${email}'`) != undefined){
+          client  
+          .query(`SELECT id, name, is_admin FROM users WHERE email = '${email}'`)
+          .then((result) => res.json(result.rows))
+          .catch((e) => console.error(e));  
+         }
       }
     })
   }) 
@@ -170,18 +174,23 @@ router.post("/commentInsert", (req, res) =>{
 })  
  
 
-// get all the books
-router.options('/allbooks', cors()) // enable pre-flight request for GET request
-router.get("/allbooks", cors(), async (req, res, next) => {
+// get all the books  
+/* router.options('/allbooks', cors()) // enable pre-flight request for GET request
+ */
+  router.get("/allbooks", async (req, res) => { 
+    let querySelect = 'SELECT * FROM books'
   pool.connect((err, client, release) => {
+   
     if (err) {
       return console.error('Error acquiring client', err.stack)
     }
-    client
-    .query(`SELECT * FROM books`)
-    .then((result) =>{res.json(result.rows)}) 
-    .catch((e) => console.error(e)); 
-
+    release()
+    if(client.query('SELECT * FROM books') != undefined){
+      client 
+      .query('SELECT * FROM books')
+      .then((table) => res.json (table.rows))
+      .catch((err)  => res.json(err))
+    }
 }) 
 })
 router.get("/favorites/:userId", async (req, res) => {

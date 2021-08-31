@@ -27,6 +27,7 @@ let Books = ()=> {
    let apiBooksFavs = () => {
     fetch(API_FAVORITES, {
         method: 'GET', 
+        mode: 'cors', // no-cors, *cors, same-origin
         headers: {
             'Content-Type': 'application/json'
         },
@@ -39,10 +40,13 @@ let Books = ()=> {
     fetch(API, {
         method: 'GET', 
         mode: 'cors', // no-cors, *cors, same-origin
+        headers: {
+            'Content-Type': 'application/json'
+        }
     })
     .then(res => { console.log(res) ; return res.json();  }) 
     .then(data =>{ setBooks(data); console.log(data)})
-    .catch(err => console.error(err.message))
+    .catch(err => console.error(err.message)) 
     }
       
 
