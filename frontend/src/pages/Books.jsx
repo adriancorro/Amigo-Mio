@@ -40,8 +40,8 @@ let Books = ()=> {
     fetch(API, {
         mode: 'cors', // no-cors, *cors, same-origin
     })
-    .then(res =>  res.text()) 
-    .then(data =>console.log(data))
+    .then(res =>  res.json()) 
+    .then(data => setBooks(data))
     .catch(err => console.error(err.message)) 
     }
       
