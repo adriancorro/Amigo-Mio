@@ -40,7 +40,7 @@ let Books = ()=> {
         method: 'GET', 
         mode: 'cors', // no-cors, *cors, same-origin
     })
-    .then(res => { console.log(res) ; return res.json();  })
+    .then(res => { console.log(res) ; return res.json();  }) 
     .then(data =>{ setBooks(data); console.log(data)})
     .catch(err => console.error(err.message))
     }

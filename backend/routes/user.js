@@ -7,6 +7,7 @@ const { pool } = require("../database/db.config");   // import database connecti
 const authenticate = require("../middleware/authenticate");
 const { query } = require("express");
 require("dotenv").config();
+const cors = require('cors');
 const router = express.Router();   // we create a new router using express's inbuilt Router method
 const ONEDAY = 86400;
 
@@ -170,7 +171,8 @@ router.post("/commentInsert", (req, res) =>{
  
 
 // get all the books
-router.get("/allbooks", async (req, res) => {
+router.options('/allbooks', cors()) // enable pre-flight request for GET request
+router.get("/allbooks", cors(), async (req, res, next) => {
   pool.connect((err, client, release) => {
     if (err) {
       return console.error('Error acquiring client', err.stack)
