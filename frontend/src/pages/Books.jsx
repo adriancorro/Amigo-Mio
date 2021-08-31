@@ -41,10 +41,10 @@ let Books = ()=> {
         method: 'GET', 
         mode: 'cors', // no-cors, *cors, same-origin
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json' 
         }
     })
-    .then(data => { console.log(res) ; return data.text();  }) 
+    .then(data => { console.log(data) ; return data.text();  }) 
     .then(res => console.log(res))
     .catch(err => console.error(err.message)) 
     }
