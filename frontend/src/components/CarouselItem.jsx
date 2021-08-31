@@ -12,8 +12,10 @@ let CarouselItem = (props)=> {
   let [dataUser, setDataUser] = useState([]);
   let [pressButton, setPressButton] = useState(false);
   let [alertMessage, setAlertMessage] = useState(false);
-  // api fetch comments  
+  // api 
   let API_FAV_POST = `/user/favoritesInsert`;
+  let API_FAV_DELETE = `/user/deleteFavorites`;
+
   let email
      email = localStorage.getItem('email')
   
@@ -56,7 +58,23 @@ let CarouselItem = (props)=> {
       body: JSON.stringify({user_id: dataUser[0].id, book_id:  saveDataBookId})
   };
 
+  const requestOptionsDelete = {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({user_id: dataUser[0].id, book_id:  saveDataBookId})
+};
+
   fetch(API_FAV_POST, requestOptions)
+      .then(response => response.json())
+      .then(data =>{ setPressButton(false)  ; setAlertMessage(data) ;  setSuttonFavStatus(false) ; console.log(data)
+          })
+      .catch((error) => {
+        console.error(error);
+      });
+
+      fetch(API_FAV_DELETE, requestOptionsDelete) 
       .then(response => response.json())
       .then(data =>{ setPressButton(false)  ; setAlertMessage(data) ;  setSuttonFavStatus(false) ; console.log(data)
           })

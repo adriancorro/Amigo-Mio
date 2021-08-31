@@ -24,10 +24,15 @@ const PageBookDetails = (props) => {
       let API_BOOKS_COMMENTS = `/user/booksCommentsUser/${book.id}`;
       let API_COMMENT_USER = '/user/commentInsert'
 
+      //localStorage      
+      let email
+      email = localStorage.getItem('email')
+
       useEffect(()=> {
         const validationUserInformation = async () =>{
-          const requestAut = await  getUserDetails() 
+          const requestAut = await  getUserDetails(email) 
           setIsAdmin(requestAut)
+          console.log(isAdmin)
       }
       validationUserInformation()
        }, [userCommentDetails]);
@@ -46,7 +51,7 @@ const PageBookDetails = (props) => {
     setInputComment(valores)
     /* Ensuring to obtain user information in the state */
     const validationUserInformation = async () =>{
-      const requestAut = await  getUserDetails() 
+      const requestAut = await  getUserDetails(email) 
       setDataUser(requestAut)
   }
   validationUserInformation()
@@ -75,7 +80,7 @@ const PageBookDetails = (props) => {
   }, [dataUser]);
 
   const deleteComments = (id)  => {
-    fetch(`http://localhost:4000/user/deleteComments/${id}`, {
+    fetch(`/user/deleteComments/${id}`, {
       method: 'Delete',
       headers: {
           authorization: `Bearer ${JSON.parse(localStorage.getItem('jwt'))}`
@@ -102,8 +107,9 @@ const PageBookDetails = (props) => {
         <div>{userCommentDetails ?
               (userCommentDetails.map((bookcommentDetail, index) => {
                         return <div key={index}>
+                                {   console.log(isAdmin)}
                                   <p>-------------------------------------------------</p>
-                                  <h5>Nombre:</h5>
+                                  <h5>Nombrev:</h5>
                                   <p> {bookcommentDetail.name}</p>
                                   <h5>Comment:</h5>
                                   <p> {bookcommentDetail.comment}</p> 

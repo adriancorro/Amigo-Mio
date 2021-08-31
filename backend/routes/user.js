@@ -240,6 +240,22 @@ router.post("/favoritesInsert", (req, res) => {
   }
 });
 
+
+//Delete favoritos
+router.delete("/deleteFavorites", (req, res) => {
+  const {   user_id, book_id }  =   req.body  
+  if( !isNaN(user_id) && user_id >  0 && !isNaN(book_id) && book_id >  0){ 
+      const query = `DELETE FROM favorites WHERE user_id = $1  AND book_id  = $2`
+      pool
+        .query(query,  [ parseInt(user_id),  parseInt(book_id)])
+        .then(() => res.status(200).send({ message: "delete fav" }) )
+        .catch((e) => res.status(400).send({ message: e }) )
+   }    
+})
+
+
+
+
 // get all comments
 router.get("/comments", async (req, res) => {
 

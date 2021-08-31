@@ -10,12 +10,16 @@ import '../assets/styles/pages/userProfile.css'
 const UserProfile = ()=> {
     // context
     let {isAdmin, setIsAdmin} = useContext(AppContext);
+    
+    // localStorage
+    let email
+    email = localStorage.getItem('email')
 
     // state
     let [dataUser, setDataUser] = useState(null);
 
     // Api
-    let API_USER = '/user/userProfile';
+    let API_USER = `/user/userProfile/${email}`;
     // let API_ALL_USERS = 'http://localhost:4000/user/allusers';
 
     useEffect(()=> {
@@ -29,7 +33,6 @@ const UserProfile = ()=> {
             .then(data => {
                 setDataUser(data[0])
                 setIsAdmin(data[0].is_admin)
-
             })
             .catch(err => console.error(err))
     }, []); 
