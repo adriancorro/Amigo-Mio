@@ -132,8 +132,9 @@ router.get("/allusers", authenticate, async (req, res) => {
 router.get("/userProfile/:email", async (req, res) => {
   pool.connect((error, client, release) => {
       let email = req.params.email
+      release(); 
       if(email != undefined){
-        release()
+      
         client  
         .query(`SELECT id, name, is_admin FROM users WHERE email = '${email}'`)
         .then((result) => res.json(result.rows))
