@@ -38,7 +38,6 @@ let Books = ()=> {
     }
     let apiBooks = () => {
     fetch(API, {
-        method: 'GET', 
         mode: 'cors', // no-cors, *cors, same-origin
     })
     .then(res => { console.log(res) ; return res.json(res);  }) 
@@ -65,6 +64,7 @@ let Books = ()=> {
             apiBooksFavs() 
          }
         apiBooks()
+        console.log(books)
     }, []);
 
     // Cuando se presiones el boton de fav se llamara a la funcion apiBooksFavs()

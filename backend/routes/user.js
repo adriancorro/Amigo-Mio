@@ -10,6 +10,11 @@ require("dotenv").config();
 const cors = require('cors');
 const router = express.Router();   // we create a new router using express's inbuilt Router method
 const ONEDAY = 86400;
+const PORT = process.env.PORT || 4000;
+
+const corsOptions = {
+  origin: `http://localhost:${PORT}/`
+};
 
 // create a new user with the give email, name, and hashed password
 router.post("/sign-up", (req, res) => {
@@ -175,7 +180,7 @@ router.post("/commentInsert", (req, res) =>{
  
 
 // get all the books  
- router.options('/allbooks', cors()) // enable pre-flight request for GET request
+ router.options('/allbooks', cors(corsOptions)) // enable pre-flight request for GET request
  
   router.get("/allbooks", cors(), async (req, res) => { 
     let querySelect = 'SELECT * FROM books'
