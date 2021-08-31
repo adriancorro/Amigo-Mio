@@ -44,8 +44,8 @@ let Books = ()=> {
             'Content-Type': 'application/json'
         }
     })
-    .then(res => { console.log(res) ; return res.json();  }) 
-    .then(data =>{ setBooks(data); console.log(data)})
+    .then(data => { console.log(res) ; return data.text();  }) 
+    .then(res => console.log(res))
     .catch(err => console.error(err.message)) 
     }
       

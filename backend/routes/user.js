@@ -175,9 +175,9 @@ router.post("/commentInsert", (req, res) =>{
  
 
 // get all the books  
-/* router.options('/allbooks', cors()) // enable pre-flight request for GET request
- */
-  router.get("/allbooks", async (req, res) => { 
+ router.options('/allbooks', cors()) // enable pre-flight request for GET request
+ 
+  router.get("/allbooks", cors(), async (req, res) => { 
     let querySelect = 'SELECT * FROM books'
   pool.connect((err, client, release) => {
    
