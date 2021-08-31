@@ -130,15 +130,17 @@ router.get("/allusers", authenticate, async (req, res) => {
 
 // get user profile
 router.get("/userProfile/:email", async (req, res) => {
-  let email = req.params.email
-  if(email != undefined){
-    pool  
-    .query(`SELECT id, name, is_admin FROM users WHERE email = '${email}'`)
-     .then((result) => res.json(result.rows))
-     .catch((e) => console.error(e));  
-  }
-     
-      }) 
+  pool.connect((error, client, release) => {
+      let email = req.params.email
+      if(email != undefined){
+        release()
+        client  
+        .query(`SELECT id, name, is_admin FROM users WHERE email = '${email}'`)
+        .then((result) => res.json(result.rows))
+        .catch((e) => console.error(e));  
+      }
+    })
+  }) 
     
 
    
