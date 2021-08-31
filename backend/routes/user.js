@@ -178,7 +178,7 @@ router.get("/allbooks", async (req, res) => {
     client
     .query(`SELECT * FROM books`)
     .then((result) =>{res.json(result.rows)}) 
-    .catch((e) => console.error(e));
+    .catch((e) => console.error(e)); 
 
 }) 
 })

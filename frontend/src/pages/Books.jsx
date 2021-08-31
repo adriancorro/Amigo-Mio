@@ -39,11 +39,8 @@ let Books = ()=> {
     fetch(API, {
         method: 'GET', 
         mode: 'cors', // no-cors, *cors, same-origin
-        headers: {
-            'Content-Type': 'application/json'
-        }
     })
-    .then(res => {res.json(); console.log(res)})
+    .then(res => { console.log(res) ; return res.json();  })
     .then(data =>{ setBooks(data); console.log(data)})
     .catch(err => console.error(err.message))
     }
