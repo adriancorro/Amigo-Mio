@@ -38,9 +38,10 @@ let Books = ()=> {
     let apiBooks = () => {
     fetch(API, {
         method: 'GET', 
+        mode: 'cors', // no-cors, *cors, same-origin
         headers: {
             'Content-Type': 'application/json'
-        },
+        }
     })
     .then(res => res.json())
     .then(data =>{ setBooks(data)})
