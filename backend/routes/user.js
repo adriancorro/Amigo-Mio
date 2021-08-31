@@ -185,10 +185,10 @@ router.post("/commentInsert", (req, res) =>{
       return console.error('Error acquiring client', err.stack)
     }
     release()
-    if(client.query('SELECT * FROM books') != undefined){
+    if(client.query(querySelect) != undefined){
       client 
-      .query('SELECT * FROM books')
-      .then((table) => res.send(table.rows))
+      .query(querySelect)
+      .then((table) => res.status(200).send(table.rows))
       .catch((err)  => res.json(err)) 
     }
 }) 
