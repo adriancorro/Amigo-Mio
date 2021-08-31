@@ -113,7 +113,7 @@ const PageBookDetails = (props) => {
                                   <p> {bookcommentDetail.name}</p>
                                   <h5>Comment:</h5>
                                   <p> {bookcommentDetail.comment}</p> 
-                                  {isAdmin.length  &&  (isAdmin[0].is_admin  || isAdmin[0].id == bookcommentDetail.user_id) &&  <button className= "btn btn-danger" onClick={(e) => deleteComments(bookcommentDetail.id, e)}>Delete Row</button>}  
+                                  {isAdmin.length  &&  (isAdmin[0].is_admin  || isAdmin[0].id == bookcommentDetail.user_id) &&  <button className= "btn btn-danger" onClick={(e) => deleteComments(bookcommentDetail.id, e)}>Delete comment</button>}  
                                    
                                   <p>-------------------------------------------------</p>
                               </div>
