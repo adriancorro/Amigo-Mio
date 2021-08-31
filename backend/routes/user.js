@@ -188,8 +188,8 @@ router.post("/commentInsert", (req, res) =>{
     if(client.query('SELECT * FROM books') != undefined){
       client 
       .query('SELECT * FROM books')
-      .then((table) => res.json (table.rows))
-      .catch((err)  => res.json(err))
+      .then((table) => res.send(table.rows))
+      .catch((err)  => res.json(err)) 
     }
 }) 
 })
