@@ -9,8 +9,9 @@ const PORT = process.env.PORT || 4000;
 const app = express();
 
 const corsOptions = {
-  origin: `http://localhost:${PORT}`
+  origin: `http://localhost:${PORT}/`
 };
+console.log(`${PORT}  epaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`)
 
 app.use(cors(corsOptions));  // enable CORS */
 
