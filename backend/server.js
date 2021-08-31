@@ -8,12 +8,11 @@ const PORT = process.env.PORT || 4000;
 // initializing express application
 const app = express();
 
-const corsOptions = {
+/* const corsOptions = {
   origin: `https://`
-};
-console.log(`${PORT}  epaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`)
+}; */
 
-app.use(cors(corsOptions));  // enable CORS */
+/* app.use(cors(corsOptions)); */  // enable CORS */
 
 app.use(express.json());
 
