@@ -43,8 +43,8 @@ let Books = ()=> {
             'Content-Type': 'application/json'
         }
     })
-    .then(res => res.json())
-    .then(data =>{ setBooks(data)})
+    .then(res => {res.json(); console.log(res)})
+    .then(data =>{ setBooks(data); console.log(data)})
     .catch(err => console.error(err.message))
     }
       
@@ -52,7 +52,7 @@ let Books = ()=> {
     //we bring user data
     useEffect(()=> {
         console.log(userEmail)
-        if(userEmail != undefined){
+        if(userEmail != null){
             const validationUserInformation = async () =>{
                 const requestAut = await  getUserDetails(userEmail) 
                 console.log(requestAut)
