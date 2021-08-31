@@ -25,13 +25,23 @@ let Books = ()=> {
    
    // fetch
    let apiBooksFavs = () => {
-    fetch(API_FAVORITES)
+    fetch(API_FAVORITES, {
+        method: 'GET', 
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })
         .then(res => res.json())
         .then(data =>{ setBooksFavorites(data) ; setDataBooksFavorites(data)})
         .catch(err => console.error(err.message))
     }
     let apiBooks = () => {
-    fetch(API)
+    fetch(API, {
+        method: 'GET', 
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })
     .then(res => res.json())
     .then(data =>{ setBooks(data)})
     .catch(err => console.error(err.message))
