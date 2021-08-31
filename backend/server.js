@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 4000;
 const app = express();
 
 const corsOptions = {
-  origin: `http://localhost:${PORT}/`
+  origin: `https://amigo-mio-open-culture-center.herokuapp.com/app`
 };
 console.log(`${PORT}  epaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`)
 
