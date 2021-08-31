@@ -52,18 +52,18 @@ let Books = ()=> {
     //we bring user data
     useEffect(()=> {
         console.log(userEmail)
-    const validationUserInformation = async () =>{
-            const requestAut = await  getUserDetails(userEmail) 
-            console.log(requestAut)
-            await  setDataUser(requestAut)
-    }
-    if(userEmail != undefined){
-       validationUserInformation()
-    }
-}, []); 
+        if(userEmail != undefined){
+            const validationUserInformation = async () =>{
+                const requestAut = await  getUserDetails(userEmail) 
+                console.log(requestAut)
+                await  setDataUser(requestAut)
+            }
+            validationUserInformation()
+        }
+    }, []); 
     
     useEffect(()=> {
-        if(userEmail != undefined){
+        if(userEmail != null){
             apiBooksFavs() 
          }
         apiBooks()

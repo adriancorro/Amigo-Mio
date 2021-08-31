@@ -7,7 +7,7 @@ const getUserDetails= (email)  => new Promise(function(resolve) {
       .then(res => res.json())
       .then(data => resolve(data))
       .catch(err => console.error(err)) 
-  })
+  }) 
   
   
   export default getUserDetails;
