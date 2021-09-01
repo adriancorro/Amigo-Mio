@@ -4,7 +4,6 @@ const userRouter =  require('./routes/user')
 const path = require('path')
 // set port, listen for requests
 const PORT = process.env.PORT || 4000;
-var expressStaticGzip = require('express-static-gzip');
 // initializing express application
 const app = express();
 
@@ -17,16 +16,18 @@ const app = express();
 app.use(express.json());
 
 if(process.env.NODE_ENV === "production"){
-/*    app.use(express.static(path.join(__dirname, '/../frontend/build')));
- */
-   const buildPath = path.join(__dirname, '/../frontend/build');
-   app.use(
-     '/',
-     expressStaticGzip(buildPath, {
-       enableBrotli: true,
-       orderPreference: ['br', 'gz']
-     })
-   );
+  // Configure body parsing for AJAX requests
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+    app.use(express.static(path.join(__dirname, '/../frontend/build')));
+    app.get('/*', (req, res) => {
+      res.sendFile(path.join(__dirname, '/../frontend/build', 'index.html'), err => {
+        if (err) {
+          res.status(500).send(err);
+        }
+      });
+    });
+    
 
   /*  app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname, '/../frontend/build', 'index.html'));
@@ -54,13 +55,6 @@ if(process.env.NODE_ENV === "production"){
     res.send('Welcome to the final project :-)')
 }); */
 
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/../frontend/build', 'index.html'), err => {
-    if (err) {
-      res.status(500).send(err);
-    }
-  });
-});
 
 app.use("/user", userRouter);
 
