@@ -1,5 +1,5 @@
 {
-  "homepage" : "https://amigo-mio-open-culture-center.herokuapp.com/",
+  "homepage" : "https://amigo-mio-open-culture-center.herokuapp.com/home",
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
