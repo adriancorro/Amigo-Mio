@@ -24,6 +24,10 @@ if(process.env.NODE_ENV === "production"){
     url = url.substring(1);  */
 }
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/../frontend/build/index.html'));
+});
+
 // Simple route
 app.get('/', (req, res) => {
     res.send('Welcome to the final project :-)')
