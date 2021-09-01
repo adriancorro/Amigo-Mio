@@ -68,6 +68,7 @@
 
  .carousel > .carousel__container > .carousel-item:hover {
   width: 350px;
+  bottom: 3rem;
  }
 
 

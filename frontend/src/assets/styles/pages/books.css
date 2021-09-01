@@ -7,11 +7,18 @@
     padding-top: 10rem;
 }
 
+.main__container {
+    display: grid;
+    height: max-content;
+    
+    }
+
 @media screen and (max-width: 500px) {
     .main__container {
  
-        margin-bottom: 900px;
-      
+    margin-bottom: 100%;
+    display: grid;
+    height: max-content;
     }
   }
 

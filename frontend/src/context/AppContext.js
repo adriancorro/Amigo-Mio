@@ -5,9 +5,10 @@ export const AppContext = createContext();
 export const AppProvider = ({children})=> {
     const [userEmail, setUserEmail] = useState(null);
     const [currentUser, setCurrentUser] = useState(null);
-    const [buttonFavStatus, setSuttonFavStatus] = useState(null);
+    const [buttonFavStatus, setButtonFavStatus] = useState(null);
     const [dataBooksFavorites, setDataBooksFavorites] = useState(null);
     const [isAdmin, setIsAdmin] = useState(null);
+    const [buttonFavStatusDelete, setButtonFavStatusDelete] = useState(null);
     useEffect(()=> {
         setCurrentUser(JSON.parse(localStorage.getItem('user')))
     }, []);
@@ -18,11 +19,13 @@ export const AppProvider = ({children})=> {
            currentUser,
            dataBooksFavorites,
            isAdmin,
+           buttonFavStatusDelete,
            setIsAdmin,
            setCurrentUser,
-          setSuttonFavStatus,
+           setButtonFavStatus,
           setDataBooksFavorites,
-          setUserEmail
+          setUserEmail,
+          setButtonFavStatusDelete
          }}>
             {children}
         </AppContext.Provider>

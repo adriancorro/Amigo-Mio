@@ -2,11 +2,11 @@
  /*  height: 25em; */
   /* overflow:auto; */
   padding-left: 5%;
-  padding-bottom: 5%;
+  padding-bottom: 2rem;
   padding-right: 5%;
   width: 100%;
   position: relative;
-  padding-top: 1rem;
+  padding-top: 0rem;
 }
 
 .carousel__container {

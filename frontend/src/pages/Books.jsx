@@ -9,7 +9,7 @@ import getUserDetails from '../function/getUserDetails.js';
 
 let Books = ()=> {
     // context
-    let {currentUser, buttonFavStatus, setDataBooksFavorites} = useContext(AppContext);
+    let {currentUser, buttonFavStatus, setDataBooksFavorites, buttonFavStatusDelete} = useContext(AppContext);
     // state
     let [books, setBooks] = useState([]);
     let [booksFavorites, setBooksFavorites] = useState([]);
@@ -28,7 +28,7 @@ let Books = ()=> {
         mode: 'cors', // no-cors, *cors, same-origin
     })
         .then(res => res.json())
-        .then(data =>{ setBooksFavorites(data) ; setDataBooksFavorites(data) ;booksFvas = data})
+        .then(data =>{ setBooksFavorites(data) ; setDataBooksFavorites(data)})
         .catch(err => console.error(err.message))
     }
     let apiBooks = () => {
@@ -61,6 +61,10 @@ let Books = ()=> {
     useEffect(()=> {
         dataUser.length > 0 &&  apiBooksFavs()
     }, [buttonFavStatus]);
+
+    useEffect(()=> {
+        dataUser.length > 0 &&  apiBooksFavs()
+    }, [buttonFavStatusDelete]);
     
     // Solo cuando dataUser obtenga toda la info del usuario se llamara a la funcion apiBooksFavs
     useEffect(()=> {
@@ -95,12 +99,13 @@ let Books = ()=> {
                                         <CarouselItem  results={books}  />
                                 </Carousel>
                             </Categories>
-                            <Categories title="Trend">
+
+                            {/* <Categories title="Trend">
                                 <Carousel>
                                     <CarouselItem/>
                                     <CarouselItem/>
                                 </Carousel>
-                            </Categories>
+                            </Categories> */}
                         </>
                     :    
                         <>

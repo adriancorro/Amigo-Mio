@@ -2,7 +2,7 @@ import React, {useState, useEffect,useContext} from 'react';
 import { AppContext } from '../context/AppContext';
 import FormBookComment from '../components/FormBookComment'
 import getUserDetails from '../function/getUserDetails.js';
-
+import  '../assets/styles/pages/pageBookdetails.css';
 const PageBookDetails = (props) => { 
 
 
@@ -103,19 +103,16 @@ const PageBookDetails = (props) => {
         <br></br>
         { currentUser && <div><FormBookComment sendFuntion={GetPropsFormData} /></div>}
         <br></br>
-        <h3>{userCommentDetails.length >= 1   ?  ("Comments") : ("No comments have been made, be the first to comment on this book!") }</h3> 
+        <h3 className="comment-title">{userCommentDetails.length >= 1   ?  ("Comments") : ("No comments have been made, be the first to comment on this book!") }</h3> 
         <div>{userCommentDetails ?
               (userCommentDetails.map((bookcommentDetail, index) => {
                         return <div key={index}>
                                 {   console.log(isAdmin)}
-                                  <p>-------------------------------------------------</p>
-                                  <h5>Nombrev:</h5>
+                                  <h5 className = "name-comment">Nombre:</h5>
                                   <p> {bookcommentDetail.name}</p>
                                   <h5>Comment:</h5>
                                   <p> {bookcommentDetail.comment}</p> 
                                   {isAdmin.length  &&  (isAdmin[0].is_admin  || isAdmin[0].id == bookcommentDetail.user_id) &&  <button className= "btn btn-danger" onClick={(e) => deleteComments(bookcommentDetail.id, e)}>Delete comment</button>}  
-                                   
-                                  <p>-------------------------------------------------</p>
                               </div>
               })) 
               :
