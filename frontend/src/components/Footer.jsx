@@ -46,7 +46,7 @@ const Footer = () => {
           </div>
           <div className="row text-center">
               <div className="col-12 col-lg pb-2 pt-2">
-                 ©Copyright. 2021 Amigo mio Project. All rights reserved. Team 2 Project.
+                 ©Copyright. 2021 Amigo mio Project. All rights reserved. MigraCode - Team 2 Project - Adrian, Emilio, Ali and Artur.
               </div>
           </div>
         </div>

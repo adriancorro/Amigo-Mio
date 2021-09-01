@@ -18,12 +18,12 @@ app.use(express.json());
 
 if(process.env.NODE_ENV === "production"){
   app.use(express.static(path.join(__dirname, '/../frontend/build/')));
-
-/*   let url = path.join(__dirname, '/../frontend/build/', 'index.html');
-  if (!url.startsWith('/app/')) // we're on local windows
-    url = url.substring(1);  */
 }
 
+/* Without this, when refreshing, for example,
+ https://amigo-mio-open-culture-center.herokuapp.com/Books, 
+ try to make a request on the server type get and this behavior 
+ is not wanted */
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '/../frontend/build/index.html'));
 });
