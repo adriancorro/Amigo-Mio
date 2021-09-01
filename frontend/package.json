@@ -1,5 +1,5 @@
 {
-  "homepage" : "https://amigo-mio-open-culture-center.herokuapp.com/",
+  "homepage" : "https://amigo-mio-open-culture-center.herokuapp.com/home",
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
@@ -23,7 +23,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:4000/", 
+  "proxy": "https://amigo-mio-open-culture-center.herokuapp.com/", 
   "eslintConfig": {
     "extends": [
       "react-app",
