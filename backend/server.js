@@ -18,13 +18,22 @@ app.use(express.json());
 if(process.env.NODE_ENV === "production"){
 
     app.use(express.static(path.join(__dirname, '/../frontend/build')));
-    a/* pp.get('/*', (req, res) => {
+    a/* app.get('/*', (req, res) => {
       res.sendFile(path.join(__dirname, '/../frontend/build', 'index.html'), err => {
         if (err) {
           res.status(500).send(err);
         }
       });
     }); */
+
+    app.get('/*', function (req, res) { // This wildcard method handles all requests
+
+      Router.run(routes, req.path, function (Handler, state) {
+          var element = React.createElement(Handler);
+          var html = React.renderToString(element);
+          res.render('main', { content: html });
+      });
+  });
     
 
   /*  app.get('/*', function (req, res) {
