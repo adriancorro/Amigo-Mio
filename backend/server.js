@@ -17,7 +17,12 @@ const app = express();
 app.use(express.json());
 
 if(process.env.NODE_ENV === "production"){
-  app.use(express.static(path.join(__dirname, '/../frontend/build/')));
+  app.use(express.static(path.join(__dirname, '/../frontend/build/app/')));
+/* 
+  if (!url.startsWith('/app/')) // we're on local windows
+    url = url.substring(1);
+  res.sendFile(url); */
+
 }
 
 /* Without this, when refreshing, for example,
