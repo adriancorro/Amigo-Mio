@@ -4,7 +4,7 @@ import '../assets/styles/components/section.css';
 const Section = () => {
 
     return (
-        <section id="section" >
+        <section id="/#section" >
             <div className="mainprincipal">
                 <div className="twocolumns">
                     <div className="twocolumnsFirstColumn">

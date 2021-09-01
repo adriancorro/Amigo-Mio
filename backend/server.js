@@ -16,43 +16,8 @@ const app = express();
 app.use(express.json());
 
 if(process.env.NODE_ENV === "production"){
-
     app.use(express.static(path.join(__dirname, '/../frontend/build')));
-  /*  app.get('/*', (req, res) => {
-      res.sendFile(path.join(__dirname, '/../frontend/build', 'index.html'), err => {
-        if (err) {
-          res.status(500).send(err);
-        }
-      });
-    });  */
-    
-
-  /*  app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname, '/../frontend/build', 'index.html'));
-  })   */
-
-/* 
-  if (!url.startsWith('/app/')) // we're on local windows
-    url = url.substring(1);
-  res.sendFile(url); */
-  /* app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '/../frontend/build/index.html'))
-  }) */
-
 }
-
-/* Without this, when refreshing, for example,
- https://amigo-mio-open-culture-center.herokuapp.com/Books, 
- try to make a request on the server type get and this behavior 
- is not wanted */
-
-
-
-// Simple route
-/* app.get('/', (req, res) => {
-    res.send('Welcome to the final project :-)')
-}); */
-
 
 app.use("/user", userRouter);
 

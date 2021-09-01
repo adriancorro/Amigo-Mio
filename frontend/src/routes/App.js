@@ -23,6 +23,10 @@ function App() {
 
   return (
       /* BrowserRouter */
+      /* Without this, when refreshing, for example,
+        https://amigo-mio-open-culture-center.herokuapp.com/Books, 
+        try to make a request on the server type get and this behavior 
+        is not wanted */
       <HashRouter>
           <NavBar /> 
           <Switch>

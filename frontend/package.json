@@ -1,5 +1,5 @@
 {
-  "homepage" : "https://amigo-mio-open-culture-center.herokuapp.com",
+  "homepage": "https://amigo-mio-open-culture-center.herokuapp.com",
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
@@ -12,7 +12,9 @@
     "react-awesome-slider": "^4.1.0",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.2.0",
+    "react-router-hash-link": "^2.4.3",
     "react-scripts": "4.0.3",
+    "react-scroll": "^1.8.3",
     "react-simple-image-slider": "^2.1.2",
     "sweetalert": "^2.1.2",
     "web-vitals": "^1.1.2"
@@ -23,7 +25,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "https://amigo-mio-open-culture-center.herokuapp.com", 
+  "proxy": "https://amigo-mio-open-culture-center.herokuapp.com",
   "eslintConfig": {
     "extends": [
       "react-app",

@@ -1,5 +1,6 @@
 import React from "react";
 import '../assets/styles/components/sectionMainBanner.css';
+import { HashLink as Link } from 'react-router-hash-link';
 
 const SectionMainBanner = () => {
     return (
@@ -10,9 +11,9 @@ const SectionMainBanner = () => {
             <div className="cuadroparatextos">
                   <h1>Welcome to Amigo Mío</h1>
                   <h4>The book My friend! It explains the journey of refugees through illustrations made by the children themselves.</h4>
-                  <a className="boton" href="#section">Learn More</a>
+                  <Link className="boton" to="#/#section">Learn More</Link>
             </div>
-            </div>
+            </div> 
           </div>
         </div>
       </header>

@@ -39,7 +39,7 @@ const Footer = () => {
               </div>
               <div className="col-12 col-lg-1 pr-0 pl-0 pb-1">
                 <a target="_blank" rel="noreferrer" href="https://www.youtube.com/channel/UC-5iSWf52DKacThUkicp1pA"><img src={youtube} alt="logo-youtube" width="40rem" /></a>
-              </div>
+              </div> 
               <div className="col-12 col-lg-1 pr-0 pl-0 pb-1">
                 <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/company/open-cultural-center/"><img src={linkedi} alt="logo-linkedi" width="40rem" /></a>
               </div>

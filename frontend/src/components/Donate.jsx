@@ -16,8 +16,8 @@ const Donate = () => {
                 <img className="ml-3 d-none d-sm-block" width="10%" src={donate_amic_meu} alt="Generic placeholder donate" />
          </div>
          <div className = "btn-donate">
-          <Link className="boton" rel="noopener noreferrer" to={{  pathname: "https://openculturalcenter.org/wp-content/uploads/2018/12/Amigo-Mio_Guia-Didactica.pdf" }}   target="_blank">Pedagogical guide</Link>
-          <Link className="boton" rel="noopener noreferrer" to={{  pathname: "https://openculturalcenter.org/es/producto/my-friend/" }}target="_blank">Donate and receive our book</Link>
+         <a className="boton" rel="noopener noreferrer"  href="https://openculturalcenter.org/wp-content/uploads/2018/12/Amigo-Mio_Guia-Didactica.pdf"   target="_blank">Pedagogical guide</a>
+         <a className="boton" rel="noopener noreferrer"  href="https://openculturalcenter.org/es/producto/my-friend/"ntarget="_blank">Donate and receive our book</a>
          </div>
      
 
