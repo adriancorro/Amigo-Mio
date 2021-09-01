@@ -20,7 +20,7 @@
     "sweetalert": "^2.1.2",
     "web-vitals": "^2.1.0"
   },
-  "proxy": "https://amigo-mio-open-culture-center.herokuapp.com", 
+  "proxy": "https://amigo-mio-open-culture-center.herokuapp.com/app", 
 
   "scripts": {
     "frontend": "cd frontend && npm start",
