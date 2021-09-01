@@ -22,7 +22,8 @@ function App() {
   let { currentUser, isAdmin } = useContext(AppContext)
 
   return (
-      <BrowserRouter>
+      /* BrowserRouter */
+      <HashRouter>
           <NavBar /> 
           <Switch>
               <Route exact path='/' component={Main}/>
@@ -39,7 +40,8 @@ function App() {
               <Route component={NotFound}/>
           </Switch>
           <Footer /> 
-      </BrowserRouter>
+      </HashRouter>
+      /* BrowserRouter */
   );
 }
 
