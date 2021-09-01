@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { AppContext } from "../context/AppContext";
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {BrowserRouter, Route, Switch ,HashRouter } from 'react-router-dom';
 import Main from '../pages/Main';
 import SignUp from '../pages/SignUp';
 import SignIn from '../pages/SignIn';
@@ -22,7 +22,7 @@ function App() {
   let { currentUser, isAdmin } = useContext(AppContext)
 
   return (
-      <BrowserRouter>
+      <HashRouter>
           <NavBar /> 
           <Switch>
               <Route exact path='/' component={Main}/>
@@ -39,7 +39,7 @@ function App() {
               <Route component={NotFound}/>
           </Switch>
           <Footer /> 
-      </BrowserRouter>
+      </HashRouter>
   );
 }
 
