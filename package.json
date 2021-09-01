@@ -1,5 +1,5 @@
 {
-  "homepage" : "http://mywebsite.com/relativepath" , 
+  "homepage" : "https://amigo-mio-open-culture-center.herokuapp.com/home" , 
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
