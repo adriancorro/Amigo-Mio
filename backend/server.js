@@ -22,9 +22,9 @@ if(process.env.NODE_ENV === "production"){
   if (!url.startsWith('/app/')) // we're on local windows
     url = url.substring(1);
   res.sendFile(url); */
-  app.get('*/', (req, res) => {
-    res.sendFile(path.join(__dirname, '/../frontend/build/index.html'));
-  });
+  /* app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '/../frontend/build/index.html'))
+  }) */
 
 }
 
@@ -32,6 +32,18 @@ if(process.env.NODE_ENV === "production"){
  https://amigo-mio-open-culture-center.herokuapp.com/Books, 
  try to make a request on the server type get and this behavior 
  is not wanted */
+ app.get("*", (req, res) => {
+
+  let path = req.params['0'].substring(1)
+
+  if (protected.includes(path)) {
+    // Return the actual file
+    res.sendFile(`${__dirname}/build/${path}`);
+  } else {
+    // Otherwise, redirect to /build/index.html
+    res.sendFile(`${__dirname}/build/index.html`);
+  }
+});
 
 
 // Simple route
