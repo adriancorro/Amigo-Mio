@@ -17,7 +17,7 @@ const Donate = () => {
          </div>
          <div className = "btn-donate">
          <a className="boton" rel="noopener noreferrer"  href="https://openculturalcenter.org/wp-content/uploads/2018/12/Amigo-Mio_Guia-Didactica.pdf"   target="_blank">Pedagogical guide</a>
-         <a className="boton" rel="noopener noreferrer"  href="https://openculturalcenter.org/es/producto/my-friend/" target="_blank">Donate and receive our book</a>
+         <a className="boton" rel="noopener noreferrer"  href="https://openculturalcenter.org/es/producto/my-friend/" target="_blank">Donate and receive our book</a> 
          </div>
      
 
