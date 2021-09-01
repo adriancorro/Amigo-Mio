@@ -62,7 +62,7 @@ let CarouselItem = (props)=> {
     (dataUser.length > 0  && pressButtonDelete)  && deletePost()
     setTimeout(() => {
       setAlertMessage(false)
-    }, 7000);
+    }, 800000);
    
   }, [pressButtonDelete]);
 
@@ -114,20 +114,28 @@ let CarouselItem = (props)=> {
         <> 
        
         {alertMessage && alertMessage.message =="Book has been added to favorites" &&
-         <div className="alert alert-success alert-dismissible fade show" role="alert">
+         <div class="container">
+         <div class="row">
+         <div className="alert alert-success alert-dismissible fade show col-sm-3" role="alert">
          <strong>Holy success!</strong> {alertMessage.message}
          <button type="button" className="close" data-dismiss="alert" aria-label="Close">
            <span aria-hidden="true">&times;</span>
          </button>
      </div>
+     </div>
+     </div>
         }
 
         {alertMessage && alertMessage.message =="The book already exists in the favorites" && 
-         <div className="alert alert-warning alert-dismissible fade show" role="alert">
+        <div class="container">
+        <div class="row">
+         <div className="alert alert-warning alert-dismissible fade show col-sm-3" role="alert">
          <strong>Holy guacamole with pina colada!</strong> {alertMessage.message}
          <button type="button" className="close" data-dismiss="alert" aria-label="Close">
            <span aria-hidden="true">&times;</span>
          </button>
+     </div>
+     </div>
      </div>
         }
 

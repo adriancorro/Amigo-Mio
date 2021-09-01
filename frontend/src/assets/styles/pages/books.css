@@ -7,7 +7,7 @@
     padding-top: 10rem;
 }
 
-.main__container {
+.main__container { 
     display: grid;
     height: max-content;
     
@@ -19,6 +19,11 @@
     margin-bottom: 100%;
     display: grid;
     height: max-content;
+    }
+
+    .carousel > .carousel__container > .carousel-item:hover {
+        width: 14rem;
+        bottom: 3rem;
     }
   }
 

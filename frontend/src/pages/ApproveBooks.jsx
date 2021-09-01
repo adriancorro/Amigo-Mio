@@ -4,6 +4,7 @@ import Categories from '../components/Categories';
 import Carousel from '../components/Carousel';
 import CarouselItemAdmin from '../components/CarouselItemAdmin';
 import CarouselItem from '../components/CarouselItem';
+import '../assets/styles/pages/approveBooks.css'
 
 const ApproveBooks = ()=> {
 
@@ -53,29 +54,30 @@ const ApproveBooks = ()=> {
     let isApproved = allBooks.filter(book => book.approved === true);
 
     return(
-        <>
-            <Categories title='Approved Books'>
-                <Carousel>
-                    {
-                        isApproved.map((book, index) => {
-                            return (
-                                <CarouselItemAdmin key={index} book={book} isApproved={true} disApproved={disApproved}/>
-                            )
-                        })
-                    }
-                </Carousel>
-            </Categories>
-            <Categories title='Books To Approve'>
-                <Carousel>
-                    {
-                        notApproved.map((book, index) => {
-                            return (
-                                <CarouselItemAdmin key={index} book={book} isApproved={false} approved={approved}/>
-                            )
-                        })
-                    }
-                </Carousel>
-            </Categories>
+        <> <div className="approved-books">
+                    <Categories title='Approved Books'>
+                        <Carousel>
+                            {
+                                isApproved.map((book, index) => {
+                                    return (
+                                        <CarouselItemAdmin key={index} book={book} isApproved={true} disApproved={disApproved}/>
+                                    )
+                                })
+                            }
+                        </Carousel>
+                    </Categories>
+                    <Categories title='Books To Approve'>
+                        <Carousel>
+                            {
+                                notApproved.map((book, index) => {
+                                    return (
+                                        <CarouselItemAdmin key={index} book={book} isApproved={false} approved={approved}/>
+                                    )
+                                })
+                            }
+                        </Carousel>
+                    </Categories>
+            </div>
         </>
     )
 }
