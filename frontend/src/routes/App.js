@@ -22,6 +22,7 @@ function App() {
   let { currentUser, isAdmin } = useContext(AppContext)
 
   return (
+      /* BrowserRouter */
       <HashRouter>
           <NavBar /> 
           <Switch>
@@ -40,6 +41,7 @@ function App() {
           </Switch>
           <Footer /> 
       </HashRouter>
+      /* BrowserRouter */
   );
 }
 
