@@ -1,5 +1,5 @@
 {
-  "homepage" : "https://amigo-mio-open-culture-center.herokuapp.com/home" , 
+  "homepage" : "https://amigo-mio-open-culture-center.herokuapp.com/" , 
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
@@ -20,10 +20,12 @@
     "sweetalert": "^2.1.2",
     "web-vitals": "^2.1.0"
   },
-  
+  "proxy": "https://amigo-mio-open-culture-center.herokuapp.com", 
+
   "scripts": {
     "frontend": "cd frontend && npm start",
     "dev": "concurrently --kill-others-on-fail \"npm run backend\" \"npm run frontend\"",
     "heroku-postbuild": "cd frontend && npm install && npm run build"
   }
+  
 }
